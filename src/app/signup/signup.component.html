@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Student Signup</h1>
+                    <strong>Signup Anytime!</strong><hr >
+                </div>
+
+
+                <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <input type="name" formControlName="name" placeholder="Enter the name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <small *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched" class="text-danger">Name is required</small>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" formControlName="email" placeholder="Enter the Email ID" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <small *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="text-danger">Email is required.</small> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Mobile Number</label>
+                        <input type="number" formControlName="mobile" placeholder="Enter the mobile number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <small *ngIf="signupForm.get('mobile')?.invalid && signupForm.get('mobile')?.touched" class="text-danger">Mobile Number is required.</small>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" formControlName="password" placeholder="Enter the password" class="form-control" id="exampleInputPassword1">
+                      <small *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="text-danger">Password is required.</small> 
+                    </div>
+                    <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary">
+                        Signup
+                    </button>
+                </form>
+
+                <a style="color:white;margin-top:10px;" routerLink="/login">Already registered? Click here to login</a>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
